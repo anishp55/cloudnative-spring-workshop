@@ -2,6 +2,7 @@
 +
   cf t -o workshop_# -s ws_user_space_#
   git clone https://github.com/anishp55/new-spring-music
+  cd new-spring-music
   ./gradlew clean assemble
   cf push
 
@@ -15,9 +16,10 @@
   cf logs spring-music
 +
 
-. Lets deploy another application
+. Lets deploy another application (from cloudnative-spring-workshop)
 +
-  cf logs spring-music
+  cd cloudnative-spring-workshop/labs/samples/go-sample
+  cf push
 +
 
 . Let's stop an app, then check that it has indeed been stopped
