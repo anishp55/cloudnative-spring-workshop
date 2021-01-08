@@ -1,0 +1,29 @@
+. Time to deploy an app. 
++
+  cf t -o workshop_# -s ws_user_space_#
+  git clone https://github.com/anishp55/new-spring-music
+  ./gradlew clean assemble
+  cf push
+
+. Lets see what is deployed
++
+  cf apps
++
+
+. Let's stop an app, then check that it has indeed been stopped
++
+  cf stop spring-music
+  cf apps
+
+== How to cleanup after yourself
+
+. Finally, let's delete an app
++
+  cf delete spring-music
++
+
+== Where to go for more help
+
+-> https://docs.cloudfoundry.org/cf-cli/getting-started.html[Getting Started with the CF CLI]
+
+-> http://www.appservgrid.com/refcards/refcards/dzonerefcards/rc207-010d-cloud-foundry.pdf[Cloud Foundry Cheat Sheet]
