@@ -15,6 +15,11 @@
   cf logs spring-music
 +
 
+. Lets deploy another application
++
+  cf logs spring-music
++
+
 . Let's stop an app, then check that it has indeed been stopped
 +
   cf stop spring-music
