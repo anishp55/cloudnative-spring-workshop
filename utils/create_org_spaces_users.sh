@@ -30,18 +30,19 @@ fi
 
 cf login -a $CF_API_ENDPOINT -u $CF_ADMIN -p $CF_ADMIN_PASSWORD --skip-ssl-validation -o system -s system
 
-cf create-org $1
+# cf create-org $1
 
 for i in `seq 1 $3`;
   do
     # cf create-user USERNAME PASSWORD
+    cf create-org $1_$i
     cf create-user $2_$i password_$i
     # cf create-space SPACE [-o ORG]
-    cf create-space -o $1 $2_space_$i
+    cf create-space -o $1_$i $2_space_$i
     # cf set-org-role USERNAME ORG ROLE
-    cf set-org-role $2_$i $1 OrgManager
+    cf set-org-role $2_$i $1_$i OrgManager
     # cf set-space-role USERNAME ORG SPACE ROLE
-    cf set-space-role $2_$i $1 $2_space_$i SpaceManager
+    cf set-space-role $2_$i $1_$i $2_space_$i SpaceManager
     # cf set-space-role USERNAME ORG SPACE ROLE
-    cf set-space-role $2_$i $1 $2_space_$i SpaceDeveloper
+    cf set-space-role $2_$i $1_$i $2_space_$i SpaceDeveloper
   done
